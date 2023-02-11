@@ -5,7 +5,34 @@ import java.util.Vector;
 public class ArrayDS {
 
     public static void main(String[] args) {
-/*        //Unique element
+
+/*         // Print extremes
+        int arr[] = {1,2,3,4,5,6,7,8,9};
+        int start = 0;
+        int end = arr.length-1;
+
+        while(true) {
+            if(start>end) {
+                break;
+            }
+
+            if(start == end){
+                System.out.print(arr[start] + " ");
+            } else{
+                System.out.print(arr[start] + " ");
+                System.out.print(arr[end] + " ");
+            }
+
+            start ++;
+            end --;
+        }
+
+        // reverse the array
+        for (int i = arr.length-1; i>=0; i--) {
+            System.out.print(arr[i]);
+        }
+
+       //Unique element
         ArrayList<Integer> vr = new ArrayList<>();
         vr.add(1);
         vr.add(1);
