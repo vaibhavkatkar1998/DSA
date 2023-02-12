@@ -145,12 +145,81 @@ public class ArrayDS {
 
             }
             System.out.print(arr[i] + " ");
-        }*/
+        }
 
         // Left rotate an Array by element
         // Majority element in array
         // Buy and sell stock - level 1
 
 
+        // 2D Array
+
+        // Sum of row and columns
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+        for (int i = 0; i < 3; i++) {
+            int sum = 0;
+            for (int j = 0; j < 3; j++) {
+                // Sum Row wise to do it columns wise do arr[j][i]
+                sum = sum + arr[i][j];
+               // System.out.print(arr[i][j] + " ");
+            }
+            System.out.println("Sum = "+sum);
+        }
+
+        // Linear search
+        int key = 8;
+        int count = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (arr[i][j] == key) {
+                    count++;
+                }
+            }
+            System.out.println();
+        }
+        if(count == 1){
+            System.out.println("present");
+        } else {
+            System.out.println("Not");
+        }
+
+        // MAX element from 2D array, same can be done for min
+        int max = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+            }
+        }
+        System.out.println("Max = "+max);
+
+        // 2D Array List, and it's printing
+        ArrayList<Integer> vr = new ArrayList<>();
+        vr.add(1);
+        vr.add(1);
+        vr.add(2);
+        vr.add(4);
+        vr.add(3);
+        ArrayList<Integer> vr1 = new ArrayList<>();
+        vr1.add(1);
+        vr1.add(1);
+        vr1.add(2);
+        vr1.add(8);
+        vr1.add(3);
+
+        //Created ArrayList of ArrayList as Integer data type
+        ArrayList<ArrayList<Integer>> ar = new ArrayList<>();
+        ar.add(vr);
+        ar.add(vr1);
+
+        for (int i = 0; i < ar.size(); i++) {
+            for (int j = 0; j < ar.get(i).size(); j++) {
+                System.out.print(ar.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }*/
     }
+
 }
