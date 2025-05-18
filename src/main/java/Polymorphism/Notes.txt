@@ -1,0 +1,142 @@
+---
+
+ 📘 Java Polymorphism – Complete Interview Notes
+
+---
+
+# 🔹 What is Polymorphism?
+
+Polymorphism means "many forms." In Java, it refers to the ability of an object to take multiple forms, i.e.,
+the same method name can behave differently depending on the object.
+
+---
+
+# 🔹 Types of Polymorphism in Java
+
+| Type                      | Description                           | When Decided |
+| ------------------------- | ------------------------------------- | ------------ |
+| Compile-time (Static) | Method Overloading                | Compile Time |
+| Runtime (Dynamic)     | Method Overriding via inheritance | Runtime      |
+
+---
+
+# ✅ 1. Method Overloading (Compile-Time Polymorphism)
+
+* Same method name, different parameter list.
+* Resolved at compile time.
+* Happens within the same class.
+* Supports automatic promotions (like char to int)
+
+```java
+class Calculator {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+}
+```
+
+---
+
+# ✅ 2. Method Overriding (Runtime Polymorphism)
+
+* Same method name and same parameter list in parent and child classes.
+* Resolved at runtime using dynamic dispatch.
+* Requires inheritance and method overriding.
+
+```java
+class Shape {
+    void area() {
+        System.out.println("Area of shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void area() {
+        System.out.println("Area of circle");
+    }
+}
+
+Shape s = new Circle();
+s.area();  // ✅ Circle's area() is called at runtime
+```
+
+---
+
+# 🔍 Important Polymorphism Concepts
+
+ ✅ Object vs Reference Type
+
+```java
+Shape s = new Circle();  // reference type: Shape, object type: Circle
+```
+
+* Method calls are based on the object type (i.e., Circle) → ✅ polymorphic behavior.
+* Field access is based on the reference type (i.e., Shape) → ❌ not polymorphic.
+
+---
+
+# 🧠 Method Overriding vs Field Hiding
+
+| Feature         | Method Overriding         | Field Hiding             |
+| --------------- | ------------------------- | ------------------------ |
+| Based on        | Object type               | Reference type           |
+| Type of Binding | Runtime (Dynamic)         | Compile-time (Static)    |
+| Behavior        | Polymorphic               | Not polymorphic          |
+| `super` usage   | To access parent’s method | To access parent’s field |
+
+```java
+class Shape {
+    String type = "Shape";
+    void area() { System.out.println("Shape area"); }
+}
+
+class Circle extends Shape {
+    String type = "Circle";
+    void area() { System.out.println("Circle area"); }
+}
+
+Shape s = new Circle();
+s.area();        // ✅ Circle's area() — method overriding
+System.out.println(s.type);  // ❌ Outputs "Shape" — field hiding
+```
+
+---
+
+# 🔒 Access Modifiers & Overriding
+
+* A child class cannot override a method with a more restrictive access modifier.
+
+  * Example: public → cannot become protected or private
+
+---
+
+# 🧱 Why Use Polymorphism?
+
+* Enables flexibility and scalability.
+* Promotes loose coupling and code reusability.
+* Ideal for implementing interfaces and designing frameworks.
+
+---
+
+# 🚫 What Cannot Be Overridden
+
+| Feature         | Can be Overridden?        |
+| --------------- | ------------------------- |
+| Static methods  | ❌ (They are hidden)       | Because method overriding depends on objects, static methods dose not belongs to object it belongs to class
+                                                 and that is why static method cannot be override
+| Final methods   | ❌                         |
+| Private methods | ❌ (They’re not inherited) |
+| Constructors    | ❌ (Not inherited)         |
+
+---
+
+# 📝 Summary for Interview
+
+* ✅ Overriding enables runtime polymorphism.
+* ✅ Method calls respect actual object, not reference type.
+* ❌ Field access is not polymorphic — it's bound at compile time.
+* ✅ Interfaces and abstract classes heavily rely on polymorphism.
+
+---
+
+Would you like this as a downloadable PDF or formatted flashcards for easy review?

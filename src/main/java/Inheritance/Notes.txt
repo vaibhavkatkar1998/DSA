@@ -1,0 +1,83 @@
+ 📘 Java Inheritance: Quick Interview Cheat Sheet
+
+ 🔹 Core Concepts
+
+* ✅ `Inheritance` allows a child class to reuse the code (fields + methods) of a parent class.
+* ✅ Syntax:
+
+  class Child extends Parent { }
+
+---
+
+ 🔹 Object & `toString()` Behavior
+
+* 📦 Creating object of child: Inherits all non-private fields and methods from the parent.
+* 🖨️ Printing object without `toString()` → shows `ClassName@hashcode`.
+* ✏️ Override `toString()` in child to customize output.
+* 🧭 Use `super.toString()` in child to include parent fields.
+
+---
+
+ 🔹 Accessing Parent Members
+
+* 🔹 Use `super.field` when:
+
+  * Parent field is shadowed (redeclared) in child.
+  * You want to access parent’s version of a method or field.
+
+* 🔹 Use `super()` to call:
+
+  * Parent class constructor (especially if it has arguments).
+  * Must be first statement in child constructor.
+
+---
+
+ 🔹 Constructor Rules
+
+* ❗ If parent has no-arg constructor, child gets it by default.
+* ❗ If parent has only parameterized constructors, child must call `super(...)`.
+
+---
+
+ 🔹 Method Overriding
+
+* ✅ Child can override parent method with:
+
+  * Same name
+  * Same parameters
+  * Same or narrower exception
+* 🧲 Use `@Override` for clarity and error-checking.
+
+---
+
+ 🔹 Field vs Method Inheritance
+
+| Feature                 | Inherited? | Notes                                       |
+| ----------------------- | ---------- | ------------------------------------------- |
+| Public/Protected Fields | ✅ Yes      | Can be accessed directly (unless private)   |
+| Private Fields          | ❌ No       | Need getters/setters                        |
+| Static Methods          | ✅ Yes      | But not overridden, only hidden         |
+| Constructors            | ❌ No       | Not inherited, only called via `super(...)` |
+
+---
+
+ 🔹 Other Important Terms
+
+* 🧬 IS-A Relationship: Child is a type of Parent.
+* 🧱 HAS-A Relationship: Composition (uses objects inside another class).
+* 🔐 `super` ≠ `this`:
+
+  * `super` → parent reference
+  * `this` → current object reference
+
+---
+
+ 🧠 Bonus Quick Facts:
+
+* Java supports single, multilevel and Hierarchical inheritance only (no multiple/hybrid class inheritance supported because of ambiguity). Ex Suppose class A have field n=5, class B have field n=10
+  and class C extends both class A and B and tries to access n in this case ambiguity will occur.
+* But you can achieve multiple behavior inheritance via interfaces.
+* All Java classes implicitly inherit from `Object` class.
+* Polymorphism works closely with Inheritance.
+
+---
