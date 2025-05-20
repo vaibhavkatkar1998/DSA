@@ -1,0 +1,75 @@
+default methods allow adding new functionality without breaking existing implementations.
+
+static methods let you add utility logic related to the interface.
+
+Interfaces define a contract, while abstract classes provide partial implementation.
+
+Interfaces support multiple inheritance via default methods; abstract classes do not.
+
+Abstract classes are better when shared state or constructors are needed.
+
+---
+
+ 🔷 Core Concepts of Interface
+
+* Interface defines a contract (what a class should do, not how).
+* Cannot be instantiated directly.
+* All fields are `public`, `static`, and `final` by default.
+* All methods are `public` and abstract by default (unless marked `default` or `static`).
+* A class implements an interface using the `implements` keyword.
+
+---
+
+ 🔷 `default` Method
+
+* Introduced in Java 8.
+* Allows method implementation inside an interface.
+* Used to add methods to interfaces without breaking existing code.
+* Can be overridden in implementing classes.
+* Accessed through object reference.
+
+---
+
+ 🔷 `static` Method
+
+* Also introduced in Java 8.
+* Provides utility/helper methods related to the interface.
+* Cannot be overridden by implementing classes.
+* Accessed using: `InterfaceName.methodName()`.
+
+---
+
+ 🔷 Multiple Inheritance
+
+* A class can implement multiple interfaces (unlike abstract classes).
+* Helps avoid diamond problem using default method conflict resolution.
+
+---
+
+ 🔷 Functional Interface
+
+* An interface with only one abstract method.
+* Annotated with `@FunctionalInterface` (optional but recommended).
+* Used in lambda expressions and method references.
+
+---
+
+ 🔷 Key Differences from Abstract Class
+
+* No constructors in interface.
+* No instance fields in interface.
+* Supports multiple inheritance.
+* Abstract class allows state (fields), constructors, and protected methods.
+
+---
+
+ 🔷 Other Important Points
+
+* From Java 9, interfaces can also have private methods to support code reuse.
+* You must implement all abstract methods in the class unless the class is abstract.
+* Interface helps in achieving loose coupling and testability (used in Spring, REST, etc.).
+* Common use in Strategy Pattern, Dependency Injection, Functional Programming.
+
+---
+
+Let me know if you want this turned into a printable flashcard or PDF!

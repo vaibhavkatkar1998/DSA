@@ -14,6 +14,7 @@ public class Main {
         // --------------------------- //
 
         //Method overriding, runtime, dynamic
+        // diff class, same name, same arguments
         Shapes shapes = new Circle();
         shapes.area(3);
         Circle circle = new Circle();
