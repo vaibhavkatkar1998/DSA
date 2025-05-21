@@ -6,4 +6,8 @@ public interface Hello1 {
 
     void greet();
 
+    default void sayHello() {
+        System.out.println("Hello from 1");
+    }
+
 }

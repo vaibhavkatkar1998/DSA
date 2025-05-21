@@ -57,5 +57,11 @@ public class NiceCar {
         niceCar1.stop();
         niceCar1.mediaStart();
         niceCar1.mediaStop();
+
+        // accessing default method
+        Engine e = new PowerEngine();
+        e.test();
+        PowerEngine powerEngine = new PowerEngine();
+        powerEngine.test();
     }
 }
